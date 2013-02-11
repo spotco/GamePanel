@@ -26,9 +26,9 @@ public class SimpleGameMain extends GamePanel {
 	
 	@Override
 	public void update() {
-		this.clear();
+		clear();
 		
-		if (this.is_key_down(KEY_UP)) {
+		if (is_key_down(KEY_UP)) {
 			_player_y-=5;
 		}
 		if (is_key_down(KEY_DOWN)) {
