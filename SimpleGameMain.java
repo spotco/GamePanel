@@ -46,10 +46,10 @@ public class SimpleGameMain extends GamePanel {
 		}
 		
 		_g.setColor(Color.RED);
-		_g.fillOval(_player_x, _player_y, 20, 20);
+		_g.fillOval(_player_x-10, _player_y-10, 20, 20);
 		
 		_g.setColor(Color.GREEN);
-		_g.fillOval(_food_x, _food_y, 10, 10);
+		_g.fillOval(_food_x-5, _food_y-5, 10, 10);
 	}
 
 }
