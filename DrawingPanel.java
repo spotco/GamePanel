@@ -1,6 +1,6 @@
-// CSE 143, Homework 1, Tiles
-// This provided class helps make it easier to draw the assignment's graphics.
-// A DrawingPanel object is a drawing surface for painting 2D graphics.
+/**
+ * Modified by SPOTCO.
+ */
 
 import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
