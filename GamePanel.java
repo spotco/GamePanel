@@ -4,7 +4,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * Simple game library for creating games in java. Meant to be overridden with game logic. 
+ * @author spotco
+ * @see DrawingPanel
+ */
 
 public class GamePanel extends DrawingPanel {
 	
