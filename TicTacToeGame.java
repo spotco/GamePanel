@@ -2,12 +2,12 @@
 public class TicTacToeGame extends GridGamePanel {
 	
 	public static void main(String[] args) { 
-		new TicTacToeGame(3); 
+		new TicTacToeGame(6); 
 	}
 	
 	public TicTacToeGame(int dim) { 
 		super(dim);
-		this.current_message = "Move: P1";
+		_current_message = "Move: P1";
 	}
 	
 	/*
@@ -15,25 +15,25 @@ public class TicTacToeGame extends GridGamePanel {
 	 * 	static int EMPTY = 0,P1 = 1, P2 = 2;
 	 * 
 	 * Fields to use:
-	 *	String current_message = "Loading...";
-	 *	int mouse_sq_x, mouse_sq_y;
-	 *	int[][] board; //note::this is accessed like board[y][x]
+	 *	String _current_message = "Loading...";
+	 *	int _mouse_sq_x, mouse_sq_y;
+	 *	int[][] _board; //note::this is accessed like board[y][x]
 	 */
 	
 	private int cur_player = P1;
 
 	@Override
 	public void clicked() {
-		if (board[mouse_sq_y][mouse_sq_x] == 0) {
-			board[mouse_sq_y][mouse_sq_x] = cur_player;
+		if (_board[_mouse_sq_y][_mouse_sq_x] == 0) {
+			_board[_mouse_sq_y][_mouse_sq_x] = cur_player;
 			
 			if (cur_player == P1) {
 				cur_player = P2;
-				this.current_message = "Move: P2";
+				_current_message = "Move: P2";
 				
 			} else if (cur_player == P2) {
 				cur_player = P1;
-				this.current_message = "Move: P1";
+				_current_message = "Move: P1";
 				
 			}
 		}
@@ -43,7 +43,7 @@ public class TicTacToeGame extends GridGamePanel {
 	
 	private void check_game_state() {
 		if (check_winner() != 0) {
-			this.current_message = "{fill in the blank here...} won!";
+			_current_message = "{fill in the blank here...} won!";
 		}
 	}
 	
