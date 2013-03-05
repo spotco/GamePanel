@@ -1,5 +1,5 @@
 
-public class TicTacToeGame extends TicTacToeBase {
+public class TicTacToeGame extends GridGamePanel {
 	
 	public static void main(String[] args) { 
 		new TicTacToeGame(3); 

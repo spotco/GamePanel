@@ -11,14 +11,14 @@ import java.awt.event.MouseEvent;
  * Override with your own game logic.
  */
 
-public class TicTacToeBase extends GamePanel {
+public class GridGamePanel extends GamePanel {
 		
 	//***********************************BEGIN STUFF YOU DON'T CARE ABOUT***********************************
 	
 	private static int DEFAULT_WID = 500,DEFAULT_HEI = 500;
 	private static int UI_HEI = 40;
 	public static void main(String[] args) { 
-		TicTacToeBase n = new TicTacToeBase(DEFAULT_WID,DEFAULT_HEI,3);
+		GridGamePanel n = new GridGamePanel(DEFAULT_WID,DEFAULT_HEI,3);
 		n.current_message = "TODO - Override me with game logic!";
 	} 
 	
@@ -30,11 +30,11 @@ public class TicTacToeBase extends GamePanel {
 	 * Creates a new tic tac toe board of given dimension
 	 * @param dim - board dimension
 	 */
-	public TicTacToeBase(int dim) {
+	public GridGamePanel(int dim) {
 		this(DEFAULT_WID,DEFAULT_HEI,dim);
 	}
 	
-	private TicTacToeBase(int width, int height, int dim) {
+	private GridGamePanel(int width, int height, int dim) {
 		super(width, height+UI_HEI);
 		this.DIM = dim;
 		this.WID = width;
