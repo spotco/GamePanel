@@ -20,19 +20,19 @@ public class TicTacToeGame extends GridGamePanel {
 	 *	int[][] _board; //note::this is accessed like board[y][x]
 	 */
 	
-	private int cur_player = P1;
+	private int _cur_player = P1;
 
 	@Override
 	public void clicked() {
 		if (_board[_mouse_sq_y][_mouse_sq_x] == 0) {
-			_board[_mouse_sq_y][_mouse_sq_x] = cur_player;
+			_board[_mouse_sq_y][_mouse_sq_x] = _cur_player;
 			
-			if (cur_player == P1) {
-				cur_player = P2;
+			if (_cur_player == P1) {
+				_cur_player = P2;
 				_current_message = "Move: P2";
 				
-			} else if (cur_player == P2) {
-				cur_player = P1;
+			} else if (_cur_player == P2) {
+				_cur_player = P1;
 				_current_message = "Move: P1";
 				
 			}

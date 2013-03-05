@@ -41,15 +41,15 @@ public class GridGamePanel extends GamePanel {
 		this.HEI = height;
 		this.SQWID = WID/DIM;
 		this.SQHEI = HEI/DIM;
-		this._board = new int[DIM][DIM];
-		this._g.setFont(new Font(null, 25, 25));
+		_board = new int[DIM][DIM];
+		_g.setFont(new Font(null, 25, 25));
 		((Graphics2D)this._g).setStroke(new BasicStroke(7));
 	}
 	
 	@Override
 	public void update() {
-		this.set_mouse_sq();
-		this.draw_board();
+		set_mouse_sq();
+		draw_board();
 	}
 	
 	@Override
