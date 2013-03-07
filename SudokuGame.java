@@ -1,4 +1,3 @@
-
 public class SudokuGame extends SudokuPanel {
 	
 	public static void main(String[] args) { new SudokuGame(); }
@@ -19,6 +18,7 @@ public class SudokuGame extends SudokuPanel {
 	/**
 	 * Checks if the current sudoku board is solved.
 	 * Prints message to window.
+	 * Called when (C) is pressed.
 	 */
 	@Override
 	public void check_sudoku() {
@@ -30,6 +30,7 @@ public class SudokuGame extends SudokuPanel {
 	
 	/**
 	 * Solves current sudoku board (if possible)
+	 * Called when (S) is pressed.
 	 */
 	@Override
 	public void solve_sudoku() {
