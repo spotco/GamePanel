@@ -15,16 +15,19 @@ public class GridGamePanel extends GamePanel {
 		
 	//***********************************BEGIN STUFF YOU DON'T CARE ABOUT***********************************
 	
-	private static int DEFAULT_WID = 500,DEFAULT_HEI = 500;
-	private static int UI_HEI = 40;
+	protected static int DEFAULT_WID = 500,DEFAULT_HEI = 500;
+	protected static int UI_HEI = 40;
+	protected static Stroke STROKE_THICK = new BasicStroke(7), STROKE_THIN = new BasicStroke(1);
+	
+	
 	public static void main(String[] args) { 
 		GridGamePanel n = new GridGamePanel(DEFAULT_WID,DEFAULT_HEI,3);
 		n._current_message = "TODO - Override me with game logic!";
 	} 
 	
-	private int DIM; 		 //DIMxDIM tic tac toe grid
-	private int WID,HEI; 	 //board width and height
-	private int SQWID,SQHEI; //square width and height
+	protected int DIM; 		 //DIMxDIM tic tac toe grid
+	protected int WID,HEI; 	 //board width and height
+	protected int SQWID,SQHEI; //square width and height
 	
 	/**
 	 * Creates a new tic tac toe board of given dimension
@@ -43,7 +46,7 @@ public class GridGamePanel extends GamePanel {
 		this.SQHEI = HEI/DIM;
 		_board = new int[DIM][DIM];
 		_g.setFont(new Font(null, 25, 25));
-		((Graphics2D)this._g).setStroke(new BasicStroke(7));
+		((Graphics2D)this._g).setStroke(STROKE_THIN);
 	}
 	
 	@Override
@@ -64,6 +67,15 @@ public class GridGamePanel extends GamePanel {
 		if (e.getKeyCode() == KeyEvent.VK_R) reset(); 
 	}
 	
+	protected void draw_element(int x, int y) {
+		if (_board[y][x]==P1) { 
+			_g.drawOval(x*(SQWID), y*(SQHEI), SQWID, SQHEI); 						//draw circle if square is == P1
+		} else if (_board[y][x]==P2) {
+			_g.drawLine(x*(SQWID), y*(SQHEI), x*(SQWID)+SQWID, y*(SQHEI)+SQHEI); 	//draw x if square is == P2
+			_g.drawLine(x*(SQWID), y*(SQHEI)+(SQHEI), x*(SQWID)+SQWID, y*(SQHEI));
+		}
+	}
+	
 	private void draw_board() {
 		this.clear();
 		_g.setColor(Color.BLACK);
@@ -74,17 +86,24 @@ public class GridGamePanel extends GamePanel {
 		
 		for(int y = 0; y < _board.length; y++) { 												//draw current state of this.board
 			for(int x = 0; x < _board[y].length; x++) {
-				if (_board[y][x]==P1) { 
-					_g.drawOval(x*(SQWID), y*(SQHEI), SQWID, SQHEI); 						//draw circle if square is == P1
-				} else if (_board[y][x]==P2) {
-					_g.drawLine(x*(SQWID), y*(SQHEI), x*(SQWID)+SQWID, y*(SQHEI)+SQHEI); 	//draw x if square is == P2
-					_g.drawLine(x*(SQWID), y*(SQHEI)+(SQHEI), x*(SQWID)+SQWID, y*(SQHEI));
-				}
+				draw_element(x,y);
 			}
 		}
 		
-		for(int i = SQWID; i < (SQWID)*DIM; i+= SQWID) _g.drawLine(i, 0, i, HEI); 			//draw grid lines
-		for(int i = SQHEI; i < (SQHEI)*DIM; i+= SQHEI) _g.drawLine(0, i, WID, i);
+		
+		for(int i = SQWID, ct = 0; i < (SQWID)*DIM; i+= SQWID) { //draw grid lines
+			ct++;
+			if (ct%3==0) ((Graphics2D)this._g).setStroke(STROKE_THICK); //modified to draw sudoku board (thick lines every 3rd line)
+			else ((Graphics2D)this._g).setStroke(STROKE_THIN);
+			
+			_g.drawLine(i, 0, i, HEI); 			
+		}
+		for(int i = SQHEI,ct = 0; i < (SQHEI)*DIM; i+= SQHEI) {
+			ct++;
+			if (ct%3==0) ((Graphics2D)this._g).setStroke(STROKE_THICK);
+			else ((Graphics2D)this._g).setStroke(STROKE_THIN);
+			_g.drawLine(0, i, WID, i);
+		}
 		_g.drawLine(0, HEI, WID, HEI);
 		
 		_g.drawString(this._current_message, 10, HEI+30);

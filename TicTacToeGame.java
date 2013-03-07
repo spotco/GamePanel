@@ -2,7 +2,7 @@
 public class TicTacToeGame extends GridGamePanel {
 	
 	public static void main(String[] args) { 
-		new TicTacToeGame(6); 
+		new TicTacToeGame(3); 
 	}
 	
 	public TicTacToeGame(int dim) { 
