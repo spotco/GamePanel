@@ -9,6 +9,7 @@ public class SudokuPanel extends GridGamePanel {
 	public static void main(String[] args) { new SudokuPanel(); }
 	public SudokuPanel() {
 		super(9);
+		System.out.println("Welcome to sudoku! Mouse over square and press 1-9 to set number.");
 		_current_message = "(P)lay random, (R)eset, (C)heck, (S)olve";
 	}
 	
