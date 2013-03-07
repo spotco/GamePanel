@@ -1,4 +1,3 @@
-
 public class TicTacToeGame extends GridGamePanel {
 	
 	public static void main(String[] args) { 
